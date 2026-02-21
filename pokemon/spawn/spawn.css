@@ -1,0 +1,99 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.maindiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.contentdiv {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, 0%);
+}
+
+.spawn-card {
+    position: relative;
+    width: 480px;
+    height: 390px;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+.spawn-bg {
+    width: 100%;
+    height: 310px;
+    border-radius: 26px;
+    overflow: hidden;
+    background-image: url("https://i.ibb.co/5XwsRSNk/Pokemon-Spawn-Background.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-sprite {
+    height: 320px;
+    object-fit: contain;
+}
+
+.info-pill {
+    position: absolute;
+    bottom: 45px;        
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    border: 2px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.pill-top {
+    background: #e53935;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.dex-section {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.mini-ball {
+    height: 32px;
+    margin-right: 8px;
+    margin-left: 2px;     
+}
+
+.dex-number {
+    color: white;
+    font-size: 24px;
+}
+
+.pokemon-name {
+    color: white;
+    font-size: 24px;
+}
+
+.pill-bottom {
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;          
+    background: white;
+}
+
+.type-icon {
+    height: 26px;
+    flex-shrink: 0;
+}
+
+</style>
