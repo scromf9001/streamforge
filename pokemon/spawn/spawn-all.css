@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.maindiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.contentdiv {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, 0%);
+}
+
+.spawn-card {
+    position: relative;
+    width: 480px;
+    height: 390px;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+.spawn-bg {
+    position: absolute;
+    width: 100%;
+    height: 310px;
+    border-radius: 26px;
+    overflow: hidden;
+
+    /* Default thin dark grey border */
+    border: 2px solid #2b2b2b;
+
+    background-size: 105%;
+    background-position: center;
+    animation: slowPan 6s ease-in-out infinite alternate;
+}
+
+/* Legendary override */
+.spawn-card.legendary .spawn-bg {
+    border: 2px solid #d4af37; /* classy gold */
+    box-shadow: 0 0 12px rgba(212,175,55,0.4);
+}
+
+@keyframes slowPan {
+    0% { background-position: 50% 50%; }
+    100% { background-position: 52% 48%; }
+}
+
+/* ---------- VIGNETTE ---------- */
+
+.spawn-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center,
+        rgba(0,0,0,0) 60%,
+        rgba(0,0,0,0.35) 100%);
+    pointer-events: none;
+}
+
+/* ---------- TYPE THEMES ---------- */
+
+/* Example types — add remaining after testing */
+
+.spawn-card.water-theme .spawn-bg {
+    background-image: url("https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/water-background.png");
+}
+
+.spawn-card.fire-theme .spawn-bg {
+    background-image: url("https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/fire-background.png");
+}
+
+.spawn-card.grass-theme .spawn-bg {
+    background-image: url("https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/grass-background.png");
+}
+
+.spawn-card.electric-theme .spawn-bg {
+    background-image: url("https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/electric-background.png");
+}
+
+/* Add the remaining types the same way */
+
+/* ---------- POKEMON SPRITE ---------- */
+
+.pokemon-sprite {
+    position: absolute;
+    height: 300px;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: spawnIn 0.6s ease-out, spawnFloat 2s ease-in-out infinite alternate;
+}
+
+/* Large Pokémon override */
+.spawn-card.large-sprite .pokemon-sprite {
+    height: 340px;
+    bottom: 70px; /* slight compensation */
+}
+
+@keyframes spawnFloat {
+    0% { transform: translate(-50%, 0px); }
+    100% { transform: translate(-50%, -6px); }
+}
+
+/* ---------- INFO PILL ---------- */
+
+.info-pill {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    border: 2px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.pill-top {
+    background: #e53935;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.dex-section {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.mini-ball {
+    height: 32px;
+    margin-right: 8px;
+}
+
+.dex-number {
+    color: white;
+    font-size: 16px;
+}
+
+.pokemon-name {
+    color: white;
+    font-size: 16px;
+}
+
+.pill-bottom {
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.type-icon {
+    height: 26px;
+}
