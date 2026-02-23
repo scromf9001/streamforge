@@ -14,7 +14,7 @@ def run():
 
         for row in reader:
 
-            if row["can_spawn"].lower() == "true" and row["is_mythic"].lower() != "true":
+            if row["can_spawn"].lower() == "yes":
                 weight = int(row["spawn_rate"]) if row["spawn_rate"] else 1
                 spawnable.append((row, weight))
 
@@ -41,7 +41,7 @@ def run():
 
     # ---------- DISPLAY TYPE LOGIC ----------
 
-    if primary == "normal" and secondary:
+    if primary == "normal" and secondary and secondary.strip():
         display_type = secondary
     else:
         display_type = primary
@@ -63,11 +63,15 @@ def run():
 
     type_icons = []
 
-    for t in [primary, secondary]:
-        if t:
-            type_icons.append(
-                f'<img class="type-icon" src="https://i.ibb.co/{t.capitalize()}.png">'
-            )
+    if primary:
+        type_icons.append(
+            f'<img class="type-icon" src="https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/{primary.capitalize()}.png">'
+        )
+
+    if secondary and secondary.strip():
+        type_icons.append(
+            f'<img class="type-icon" src="https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/{secondary.capitalize()}.png">'
+        )
 
     type_icons_html = "".join(type_icons)
 

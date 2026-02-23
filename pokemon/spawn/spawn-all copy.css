@@ -28,7 +28,10 @@
     height: 310px;
     border-radius: 26px;
     overflow: hidden;
+
+    /* Default thin dark grey border */
     border: 2px solid #1a1a1a;
+
     background-size: 105%;
     background-position: center;
     animation: slowPan 6s ease-in-out infinite alternate;
@@ -135,7 +138,7 @@
 
 .pokemon-sprite {
     position: absolute;
-    height: 260px;
+    height: 300px;
     bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
@@ -145,7 +148,7 @@
 /* Large Pokémon override */
 .spawn-card.large-sprite .pokemon-sprite {
     height: 340px;
-    bottom: 70px; 
+    bottom: 70px; /* slight compensation */
 }
 
 @keyframes spawnFloat {
@@ -160,56 +163,50 @@
     bottom: 45px;
     left: 50%;
     transform: translateX(-50%);
-    
-    display: inline-flex;
-    flex-direction: column;
-    
-    min-width: 200px;
-    max-width: 90%;
-    
+    width: 260px;
     border: 2px solid #222;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     background: white;
 }
 
 .pill-top {
     background: #e53935;
+    height: 42px;
     display: flex;
     align-items: center;
-    padding: 4px 10px;  
-    gap: 8px;
+    padding: 0 10px;
 }
 
 .dex-section {
     display: flex;
     align-items: center;
-    gap: 6px;
+    margin-right: 10px;
 }
 
 .mini-ball {
-    height: 24px;
+    height: 32px;
+    margin-right: 8px;
 }
 
 .dex-number {
     color: white;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .pokemon-name {
     color: white;
-    font-size: 14px;
-    white-space: nowrap;
+    font-size: 16px;
 }
 
 .pill-bottom {
-    padding: 4px 10px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .type-icon {
-    height: 22px;
+    height: 26px;
 }
