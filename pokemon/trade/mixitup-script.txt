@@ -1,0 +1,73 @@
+import csv
+
+def run():
+    raw = "$targetitemname"
+
+    # Helper to detect if Mix It Up actually replaced the placeholder
+    def clean_arg(raw, token_name):
+        s = raw.strip()
+        if not s:
+            return ""
+        # Treat unreplaced identifiers as empty
+        if s.startswith("$") or token_name in s:
+            return ""
+        return s.lower()
+
+    search_name = clean_arg(raw, "targetitemname")
+
+    # If nothing valid to search
+    if not search_name:
+        return "false"
+
+    csv_path = r"C:\Users\sebas\Desktop\Stream Stuff\Pokemon System\pokemon_list.csv"
+
+    try:
+        with open(csv_path, encoding="utf-8", newline='') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                name = row.get("name", "").strip().lower()
+                if name == search_name:
+                    return row.get("number", "false")
+    except Exception:
+        return "false"
+
+    return "false"
+
+print(run())
+
+import csv
+
+def run():
+    raw = "$itemname"
+
+    # Helper to detect if Mix It Up actually replaced the placeholder
+    def clean_arg(raw, token_name):
+        s = raw.strip()
+        if not s:
+            return ""
+        # Treat unreplaced identifiers as empty
+        if s.startswith("$") or token_name in s:
+            return ""
+        return s.lower()
+
+    search_name = clean_arg(raw, "itemname")
+
+    # If nothing valid to search
+    if not search_name:
+        return "false"
+
+    csv_path = r"C:\Users\sebas\Desktop\Stream Stuff\Pokemon System\pokemon_list.csv"
+
+    try:
+        with open(csv_path, encoding="utf-8", newline='') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                name = row.get("name", "").strip().lower()
+                if name == search_name:
+                    return row.get("number", "false")
+    except Exception:
+        return "false"
+
+    return "false"
+
+print(run())

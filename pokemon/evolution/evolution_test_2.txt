@@ -1,0 +1,46 @@
+{
+  "status": "success",
+  "error_code": null,
+  "result_type": "normal",
+
+  "messages": {
+    "start": "What? @scromf9001's Abra is evolving!",
+    "complete": "Congratulations! @scromf9001's Abra evolved into Kadabra!"
+  },
+
+  "sound_url": "C:\\Users\\sebas\\Desktop\\Stream Stuff\\Pokemon System\\Sounds\\Evolution fanfare.MP3",
+
+  "base_pokemon": {
+    "name": "Abra",
+    "number": "63",
+    "pokedex_number": "0063",
+    "primary_type": "Psychic",
+    "secondary_type": "Null"
+  },
+
+  "evolved_pokemon": {
+    "name": "Kadabra",
+    "number": "64",
+    "pokedex_number": "0064",
+    "primary_type": "Psychic",
+    "secondary_type": "Null"
+  },
+
+  "special_identifiers": {
+    "basepokemonsp": "abra",
+    "evolutionsp": "kadabra",
+    "inventory_identifier": null
+  },
+
+  "requirement_data": {
+    "requirement_type": "none",
+    "requirement_display_name": null,
+    "required_pokemon_quantity": 3,
+    "user_pokemon_quantity": 4,
+    "required_friendship": 600,
+    "user_friendship": 0,
+    "user_item_quantity": 0
+  },
+
+  "rendered_html": "<div class='spawn-card psychic-theme'> ... </div>"
+}
