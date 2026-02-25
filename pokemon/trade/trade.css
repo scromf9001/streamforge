@@ -21,6 +21,20 @@
 }
 
 /* =========================
+   TRADE POSITIONING
+========================= */
+
+.maindiv.trade-left .contentdiv {
+    left: 35%;
+    transform: translate(-50%, 0%);
+}
+
+.maindiv.trade-right .contentdiv {
+    left: 65%;
+    transform: translate(-50%, 0%);
+}
+
+/* =========================
    CARD OWNER BANNER
 ========================= */
 
