@@ -174,7 +174,7 @@
 .pokemon-sprite {
     position: absolute;
     height: 250px;
-    bottom: 80px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     animation: spawnIn 0.6s ease-out;
