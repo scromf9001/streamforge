@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.camera-strip {
+  width: 600px;               /* match camera width */
+  height: 220px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 12px;           /* tighter horizontal spacing */
+  row-gap: 18px;               /* vertical spacing kept nice */
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* Smaller base ball */
+.slot {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+/* Fade ball way back */
+.ball {
+  width: 100%;
+  height: 100%;
+  opacity: 0.60;              /* much more subtle */
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.5));
+}
+
+/* BIG sprite */
+.sprite {
+  position: absolute;
+  width: 135%;                /* MUCH bigger */
+  bottom: -10%;               /* push down slightly */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.7));
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animation */
+.bounce-in {
+  animation: bounceIn 0.35s ease-out;
+}
+
+.bounce-out {
+  animation: bounceOut 0.25s ease-in forwards;
+}
+
+@keyframes bounceIn {
+  0% { transform: translateX(-50%) scale(0.6); opacity: 0; }
+  60% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+@keyframes bounceOut {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(0.4); opacity: 0; }
+}

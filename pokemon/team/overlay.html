@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="overlay.css">
+</head>
+
+<body>
+
+<div class="camera-strip">
+
+  <div class="slot">
+    <img class="ball" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/960px-Pok%C3%A9_Ball_icon.svg.png">
+    <img class="sprite hidden" id="sprite1">
+  </div>
+
+  <div class="slot">
+    <img class="ball" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/960px-Pok%C3%A9_Ball_icon.svg.png">
+    <img class="sprite hidden" id="sprite2">
+  </div>
+
+  <div class="slot">
+    <img class="ball" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/960px-Pok%C3%A9_Ball_icon.svg.png">
+    <img class="sprite hidden" id="sprite3">
+  </div>
+
+  <div class="slot">
+    <img class="ball" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/960px-Pok%C3%A9_Ball_icon.svg.png">
+    <img class="sprite hidden" id="sprite4">
+  </div>
+
+  <div class="slot">
+    <img class="ball" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/960px-Pok%C3%A9_Ball_icon.svg.png">
+    <img class="sprite hidden" id="sprite5">
+  </div>
+
+  <div class="slot">
+    <img class="ball" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/960px-Pok%C3%A9_Ball_icon.svg.png">
+    <img class="sprite hidden" id="sprite6">
+  </div>
+
+</div>
+
+<script>
+
+let previousState = {};
+
+async function loadTeam() {
+  try {
+    const response = await fetch("active_team.json?t=" + new Date().getTime());
+    const data = await response.json();
+
+    for (let i = 1; i <= 6; i++) {
+
+      const spriteEl = document.getElementById("sprite" + i);
+      const newData = data[i];
+      const oldData = previousState[i];
+
+      if (newData) {
+
+        if (!oldData || oldData.sprite !== newData.sprite) {
+
+          if (!spriteEl.classList.contains("hidden")) {
+            spriteEl.classList.remove("bounce-in");
+            spriteEl.classList.add("bounce-out");
+
+            setTimeout(() => {
+              spriteEl.src = newData.sprite;
+              spriteEl.classList.remove("bounce-out");
+              spriteEl.classList.remove("hidden");
+              spriteEl.classList.add("bounce-in");
+            }, 250);
+
+          } else {
+            spriteEl.src = newData.sprite;
+            spriteEl.classList.remove("hidden");
+            spriteEl.classList.add("bounce-in");
+          }
+        }
+
+      } else {
+
+        if (!spriteEl.classList.contains("hidden")) {
+          spriteEl.classList.remove("bounce-in");
+          spriteEl.classList.add("bounce-out");
+
+          setTimeout(() => {
+            spriteEl.classList.add("hidden");
+            spriteEl.classList.remove("bounce-out");
+          }, 250);
+        }
+      }
+    }
+
+    previousState = data;
+
+  } catch (error) {
+    console.log("JSON load error:", error);
+  }
+}
+
+setInterval(loadTeam, 700);
+loadTeam();
+
+</script>
+
+</body>
+</html>

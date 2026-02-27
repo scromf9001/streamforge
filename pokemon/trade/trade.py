@@ -259,7 +259,7 @@ def run():
         "result_type": result_type,
 
         "messages": {
-            "start": f"@{user_a_display} and @{user_b_display} are trading!"
+            "start": f"@{user_a_display} and @{user_b_display} are trading!",
             "complete": "Trade complete.",
             "error_message": "Both Pokémon must require trade to evolve." if result_type == "trade_evolution_failed_requirement" else None
         },
