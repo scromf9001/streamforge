@@ -64,11 +64,7 @@ def run():
 
     # ---------- SPRITE URL ----------
 
-    if form:
-        sprite_id = f"{number}-{form}"
-    else:
-        sprite_id = number
-
+    sprite_id = number
     sprite_url = f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{sprite_id}.png"
 
     # ---------- DEX DISPLAY ----------

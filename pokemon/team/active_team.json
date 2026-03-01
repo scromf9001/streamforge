@@ -1,0 +1,26 @@
+{
+  "1": {
+    "name": "charmander",
+    "sprite": "https://img.pokemondb.net/sprites/firered-leafgreen/normal/charmander.png"
+  },
+  "2": {
+    "name": "pidgey",
+    "sprite": "https://img.pokemondb.net/sprites/firered-leafgreen/normal/pidgey.png"
+  },
+  "3": {
+    "name": "oddish",
+    "sprite": "https://img.pokemondb.net/sprites/firered-leafgreen/normal/oddish.png"
+  },
+  "4": {
+    "name": "mankey",
+    "sprite": "https://img.pokemondb.net/sprites/firered-leafgreen/normal/mankey.png"
+  },
+  "5": {
+    "name": "nidoran-m",
+    "sprite": "https://img.pokemondb.net/sprites/firered-leafgreen/normal/nidoran-m.png"
+  },
+  "6": {
+    "name": "nidoran-f",
+    "sprite": "https://img.pokemondb.net/sprites/firered-leafgreen/normal/nidoran-f.png"
+  }
+}

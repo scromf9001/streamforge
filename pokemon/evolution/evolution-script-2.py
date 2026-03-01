@@ -22,6 +22,11 @@ def build_type_icons(primary, secondary):
         icons += f'<img class="type-icon" src="https://raw.githubusercontent.com/scromf9001/streamforge/refs/heads/main/pokemon/spawn/assets/{secondary}.png">'
     return icons
 
+def sanitize_sprite_number(number):
+    try:
+        return str(int(float(number)))
+    except (ValueError, TypeError):
+        return str(number)
 
 def render_spawn_card(name, number, pokedex_number,
                       primary_type, secondary_type,
@@ -30,10 +35,21 @@ def render_spawn_card(name, number, pokedex_number,
                       flash_mode=None,
                       display_username=None):
 
-    type_class = f"{primary_type.lower()}-theme"
+    # secondary type as main if primary type is normal
+    visual_primary = primary_type
+    visual_secondary = secondary_type
+
+    if primary_type and primary_type.lower() == "normal":
+        if secondary_type and secondary_type.lower() not in ["null", "none", ""]:
+            visual_primary = secondary_type
+            visual_secondary = None  # Avoid double icon duplication
+
+    type_class = f"{visual_primary.lower()}-theme"
+
     legendary_class = " legendary" if str(is_legendary).upper() == "TRUE" else ""
     size_class = " large-sprite" if size == "large" else ""
     evolving_class = " evolving" if evolving else ""
+    sprite_number = sanitize_sprite_number(number)
 
     type_icons = build_type_icons(primary_type, secondary_type)
 
@@ -58,7 +74,7 @@ def render_spawn_card(name, number, pokedex_number,
     {flash_div}
 
     <img class="pokemon-sprite"
-         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{number}.png">
+         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{sprite_number}.png"
 
     <div class="info-pill">
         <div class="pill-top">

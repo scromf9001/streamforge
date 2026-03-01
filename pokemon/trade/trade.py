@@ -31,10 +31,22 @@ def load_data():
 
 
 def find_pokemon(data, search_name):
-    for row in data:
-        if row["name"].strip().lower() == search_name:
+
+    matches = [
+        row for row in data
+        if row["name"].strip().lower() == search_name
+    ]
+
+    if not matches:
+        return None
+
+    # Prefer trade-required entry if exists
+    for row in matches:
+        if requires_trade(row):
             return row
-    return None
+
+    # Otherwise return first match
+    return matches[0]
 
 
 def requires_trade(row):
@@ -58,7 +70,16 @@ def render_spawn_card(name, number, pokedex_number,
                       flash_mode=None,
                       display_username=None):
 
-    type_class = f"{primary_type.lower()}-theme"
+    visual_primary = primary_type
+    visual_secondary = secondary_type
+
+    if primary_type and primary_type.lower() == "normal":
+        if secondary_type and secondary_type.lower() not in ["null", "none", ""]:
+            visual_primary = secondary_type
+            visual_secondary = None  # Avoid double icon duplication
+
+    type_class = f"{visual_primary.lower()}-theme"
+    
     legendary_class = " legendary" if str(is_legendary).upper() == "TRUE" else ""
     size_class = " large-sprite" if size == "large" else ""
     evolving_class = " evolving" if evolving else ""
